@@ -1,0 +1,26 @@
+{
+  "name": "jsgameengine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "node ./node_modules/webpack-cli/bin/cli.js",
+    "server": "webpack serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "planck-js": "^0.3.22",
+    "three": "^0.122.0",
+    "webpack": "^5.3.1",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0"
+  }
+}
