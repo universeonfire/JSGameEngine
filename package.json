@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "keyboardjs": "^2.6.4",
     "planck-js": "^0.3.22",
     "three": "^0.122.0",
     "webpack": "^5.3.1",

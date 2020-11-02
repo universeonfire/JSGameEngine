@@ -11,13 +11,14 @@ export default class Renderer {
 
     windowResize = (w,h) => {
         this.webGlRenderer.setSize(w,h);
-        //console.log("renderer size:", this.webGlRenderer.getSize())
     }
 
     update = (dtime) => {
         this.webGlRenderer.clear();
-        console.log("render color:",this.webGlRenderer.getClearColor());
-        console.log("renderer size:", this.webGlRenderer.getSize());
+    }
+
+    render = (level,camera) => {
+        this.webGlRenderer.render(level.getScene(),camera);
     }
 }
 

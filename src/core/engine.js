@@ -1,16 +1,16 @@
 import Renderer from "./renderer";
-import * as Planck from "planck-js";
+import Game from "../game";
+
 
 export default class Engine{
     aspectRatio = 0;
     gtime = 0;
-
+    
     constructor(canvas, gameView){
         this.renderer = new Renderer(canvas);
-        this.world = new Planck.World(new Planck.Vec2(0,0));
         this.canvas = canvas;
         this.gameView = gameView;
-
+        
     }
     start = (w,h) => {
         console.log("engine initiated");
@@ -18,14 +18,20 @@ export default class Engine{
         this.canvas.height = h;
         
         this.aspectRatio = w>h ? w/h : h/w;
-        
+        this.game = new Game(this.aspectRatio);
+        this.windowResize();
+        this.game.start();
         window.onresize = this.windowResize;
+        
         
         this.loop(0);
     }
 
     update = (dtime) => {
+        this.game.update(dtime);
         this.renderer.update(dtime);
+        
+        this.renderer.render(this.game.getLevel(), this.game.getCamera());
     }
 
     loop = (gtime) => {
@@ -55,8 +61,8 @@ export default class Engine{
         this.gameView.style.marginTop = -(height/2) + "px";
         this.gameView.style.marginLeft = -(width/2) + "px";
         
-        //console.log("window Resize:", width,height,windowAspectRatio);
+        
         this.renderer.windowResize(width,height);
-        //console.log(this.gameView);
+        
     }
 }
